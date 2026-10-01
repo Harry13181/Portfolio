@@ -4,7 +4,10 @@
 
 > Designing mechanical systems. Exploring manufacturing. Building practical solutions.
 
-[Portfolio](#-portfolio-website) · [GitHub](https://github.com/Harry13181) · [LinkedIn](https://linkedin.com/in/hari-prasath-p-bb4b11404) · [Email](mailto:sit24me031@sairamtap.edu.in)
+🌐 [**Live Portfolio**](https://harry13181.github.io/Portfolio/) ·  
+🐙 [**GitHub**](https://github.com/Harry13181) ·  
+💼 [**LinkedIn**](https://linkedin.com/in/hari-prasath-p-bb4b11404) ·  
+📧 [**Email**](mailto:sit24me031@sairamtap.edu.in)
 
 ---
 
@@ -296,6 +299,10 @@ Practical Engineering Projects
 
 This repository contains the source code for my personal engineering portfolio website.
 
+### 🔗 Live Website
+
+**[Visit My Portfolio →](https://harry13181.github.io/Portfolio/)**
+
 The website follows a **Gothic × Hacker × Mechanical Engineering** visual concept while maintaining responsive usability across desktop and Android devices.
 
 ### Website Features
@@ -494,6 +501,10 @@ I am interested in opportunities involving:
 ### 💼 LinkedIn
 
 [linkedin.com/in/hari-prasath-p-bb4b11404](https://linkedin.com/in/hari-prasath-p-bb4b11404)
+
+### 🌐 Portfolio
+
+[harry13181.github.io/Portfolio](https://harry13181.github.io/Portfolio/)
 
 ---
 

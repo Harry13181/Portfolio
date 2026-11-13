@@ -1,2263 +1,3423 @@
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+
+    <meta charset="UTF-8">
 
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <meta
-      name="description"
-      content="HariPrasath P - Mechanical Engineering Student Portfolio"
-    />
+        name="description"
+        content="HariPrasath P - Mechanical Engineering Student Portfolio"
+    >
 
     <title>HariPrasath P | Mechanical Engineering</title>
 
+
     <style>
-      /* =================================================
+
+        /* =================================================
            GLOBAL RESET
            ================================================= */
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
 
-      body {
-        background: #030303;
-        color: #eeeeee;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
-        font-family: "Courier New", monospace;
 
-        line-height: 1.6;
+        body {
+            background: #030303;
+            color: #eeeeee;
 
-        overflow-x: hidden;
-      }
+            font-family:
+                "Courier New",
+                monospace;
 
-      :root {
-        --bg: #030303;
+            line-height: 1.6;
 
-        --panel: #0b0b0b;
+            overflow-x: hidden;
+        }
 
-        --panel2: #101010;
 
-        --red: #ff1744;
+        :root {
 
-        --dark-red: #8b001d;
+            --bg: #030303;
 
-        --green: #00ff88;
+            --panel: #0b0b0b;
 
-        --white: #eeeeee;
+            --panel2: #101010;
 
-        --gray: #888888;
+            --red: #ff1744;
 
-        --border: #292929;
-      }
+            --dark-red: #8b001d;
 
-      /* =================================================
+            --green: #00ff88;
+
+            --white: #eeeeee;
+
+            --gray: #888888;
+
+            --border: #292929;
+        }
+
+
+        /* =================================================
            BACKGROUND
            ================================================= */
 
-      body::before {
-        content: "";
+        body::before {
 
-        position: fixed;
+            content: "";
 
-        inset: 0;
+            position: fixed;
 
-        z-index: -2;
+            inset: 0;
 
-        pointer-events: none;
+            z-index: -2;
 
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-          linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.015) 1px,
-            transparent 1px
-          );
+            pointer-events: none;
 
-        background-size: 40px 40px;
-      }
+            background-image:
 
-      body::after {
-        content: "";
+                linear-gradient(
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                ),
 
-        position: fixed;
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                );
 
-        inset: 0;
+            background-size: 40px 40px;
+        }
 
-        z-index: 9999;
 
-        pointer-events: none;
+        body::after {
 
-        background: repeating-linear-gradient(
-          0deg,
-          rgba(255, 255, 255, 0.015),
-          rgba(255, 255, 255, 0.015) 1px,
-          transparent 1px,
-          transparent 4px
-        );
+            content: "";
 
-        opacity: 0.15;
-      }
+            position: fixed;
 
-      /* =================================================
+            inset: 0;
+
+            z-index: 9999;
+
+            pointer-events: none;
+
+            background:
+
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.015),
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: 0.15;
+        }
+
+
+        /* =================================================
            COMMON
            ================================================= */
 
-      .container {
-        width: min(1100px, 100%);
+        .container {
 
-        margin: auto;
+            width: min(1100px, 100%);
 
-        padding: 0 25px;
-      }
+            margin: auto;
 
-      section {
-        padding: 100px 0 40px;
-      }
+            padding: 0 25px;
+        }
 
-      a {
-        color: inherit;
-      }
 
-      h1,
-      h2,
-      h3 {
-        font-family: Georgia, "Times New Roman", serif;
-      }
+        section {
 
-      .reveal {
-        opacity: 0;
+            padding: 100px 0 40px;
+        }
 
-        transform: translateY(25px);
 
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
+        a {
+            color: inherit;
+        }
 
-      .reveal.show {
-        opacity: 1;
 
-        transform: translateY(0);
-      }
+        h1,
+        h2,
+        h3 {
 
-      /* =================================================
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+
+        .reveal.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =================================================
            CINEMATIC PORTAL OPENING
            ================================================= */
 
-      #bootScreen {
-        position: fixed;
+        #bootScreen {
 
-        inset: 0;
+            position: fixed;
 
-        z-index: 10000;
+            inset: 0;
 
-        display: flex;
+            z-index: 10000;
 
-        align-items: center;
+            display: flex;
 
-        justify-content: center;
+            align-items: center;
 
-        overflow: hidden;
+            justify-content: center;
 
-        background: radial-gradient(
-          circle at center,
-          #180008 0%,
-          #060001 35%,
-          #010101 70%,
-          #000000 100%
-        );
+            overflow: hidden;
 
-        opacity: 1;
+            background:
 
-        visibility: visible;
+                radial-gradient(
+                    circle at center,
+                    #180008 0%,
+                    #060001 35%,
+                    #010101 70%,
+                    #000000 100%
+                );
 
-        transition:
-          opacity 1s ease,
-          visibility 1s ease;
-      }
+            opacity: 1;
 
-      #bootScreen.hide {
-        opacity: 0;
+            visibility: visible;
 
-        visibility: hidden;
-
-        pointer-events: none;
-      }
-
-      /* PORTAL */
-
-      .portal {
-        position: relative;
-
-        width: min(42vw, 360px);
-
-        height: min(42vw, 360px);
-
-        min-width: 210px;
-
-        min-height: 210px;
-
-        border-radius: 50%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        animation:
-          portalAppear 1.4s ease-out forwards,
-          portalFloat 3s ease-in-out 1.4s infinite;
-      }
-
-      /* OUTER RING */
-
-      .portal-ring {
-        position: absolute;
-
-        inset: 0;
-
-        border-radius: 50%;
-
-        border: 3px solid rgba(255, 30, 70, 0.85);
-
-        box-shadow:
-          0 0 15px #ff1744,
-          0 0 40px rgba(255, 23, 68, 0.8),
-          0 0 90px rgba(255, 23, 68, 0.5),
-          inset 0 0 35px rgba(255, 23, 68, 0.5);
-
-        animation: portalRotate 7s linear infinite;
-      }
-
-      /* SECOND RING */
-
-      .portal-ring::before {
-        content: "";
-
-        position: absolute;
-
-        inset: 12px;
-
-        border-radius: 50%;
-
-        border: 2px dashed rgba(255, 90, 110, 0.85);
-
-        box-shadow: 0 0 20px rgba(255, 23, 68, 0.7);
-
-        animation: portalRotateReverse 4s linear infinite;
-      }
-
-      /* INNER RING */
-
-      .portal-ring::after {
-        content: "";
-
-        position: absolute;
-
-        inset: 28px;
-
-        border-radius: 50%;
-
-        border: 1px solid rgba(255, 180, 190, 0.65);
-
-        animation: portalPulse 1.8s ease-in-out infinite;
-      }
-
-      /* PORTAL CORE */
-
-      .portal-core {
-        position: absolute;
-
-        width: 72%;
-
-        height: 72%;
-
-        border-radius: 50%;
-
-        background: radial-gradient(
-          circle,
-          rgba(255, 40, 70, 0.95) 0%,
-
-          rgba(120, 0, 20, 0.85) 28%,
-
-          rgba(20, 0, 5, 0.95) 65%,
-
-          #000000 100%
-        );
-
-        box-shadow:
-          0 0 30px rgba(255, 23, 68, 0.9),
-          0 0 80px rgba(255, 23, 68, 0.7),
-          0 0 150px rgba(255, 23, 68, 0.4);
-
-        animation: corePulse 1.5s ease-in-out infinite;
-      }
-
-      /* PARTICLES */
-
-      .portal-particles {
-        position: absolute;
-
-        inset: -30%;
-
-        border-radius: 50%;
-
-        background:
-          radial-gradient(circle at 20% 30%, #ff526d 0 2px, transparent 3px),
-          radial-gradient(circle at 75% 20%, #ff1744 0 2px, transparent 3px),
-          radial-gradient(circle at 85% 65%, #ff7187 0 2px, transparent 3px),
-          radial-gradient(circle at 30% 80%, #ff1744 0 2px, transparent 3px),
-          radial-gradient(circle at 55% 10%, #ffffff 0 1px, transparent 2px),
-          radial-gradient(circle at 10% 65%, #ff405f 0 2px, transparent 3px);
-
-        filter: drop-shadow(0 0 5px #ff1744);
-
-        animation: particlesRotate 9s linear infinite;
-      }
-
-      /* ENERGY BURST */
-
-      .portal-burst {
-        position: absolute;
-
-        width: 100%;
-
-        height: 100%;
-
-        border-radius: 50%;
-
-        border: 1px solid rgba(255, 255, 255, 0.75);
-
-        opacity: 0;
-
-        animation: burst 1.2s ease-out 1.5s forwards;
-      }
-
-      /* PORTAL APPEAR */
-
-      @keyframes portalAppear {
-        0% {
-          transform: scale(0) rotate(-90deg);
-
-          opacity: 0;
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
         }
 
-        45% {
-          transform: scale(0.65) rotate(-25deg);
 
-          opacity: 0.8;
+        #bootScreen.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
         }
 
-        75% {
-          transform: scale(1.08) rotate(5deg);
 
-          opacity: 1;
+        /* PORTAL */
+
+        .portal {
+
+            position: relative;
+
+            width: min(42vw, 360px);
+
+            height: min(42vw, 360px);
+
+            min-width: 210px;
+
+            min-height: 210px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            animation:
+                portalAppear 1.4s ease-out forwards,
+                portalFloat 3s ease-in-out 1.4s infinite;
         }
 
-        100% {
-          transform: scale(1) rotate(0deg);
 
-          opacity: 1;
-        }
-      }
+        /* OUTER RING */
 
-      /* RING ROTATION */
+        .portal-ring {
 
-      @keyframes portalRotate {
-        from {
-          transform: rotate(0deg);
-        }
+            position: absolute;
 
-        to {
-          transform: rotate(360deg);
-        }
-      }
+            inset: 0;
 
-      @keyframes portalRotateReverse {
-        from {
-          transform: rotate(360deg);
-        }
+            border-radius: 50%;
 
-        to {
-          transform: rotate(0deg);
-        }
-      }
+            border:
+                3px solid rgba(
+                    255,
+                    30,
+                    70,
+                    0.85
+                );
 
-      /* INNER PULSE */
+            box-shadow:
 
-      @keyframes portalPulse {
-        0%,
-        100% {
-          transform: scale(0.9);
+                0 0 15px #ff1744,
 
-          opacity: 0.4;
-        }
+                0 0 40px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.8
+                    ),
 
-        50% {
-          transform: scale(1.05);
+                0 0 90px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.5
+                    ),
 
-          opacity: 1;
-        }
-      }
+                inset 0 0 35px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.5
+                    );
 
-      @keyframes corePulse {
-        0%,
-        100% {
-          transform: scale(0.9);
-
-          opacity: 0.75;
+            animation:
+                portalRotate 7s linear infinite;
         }
 
-        50% {
-          transform: scale(1.08);
 
-          opacity: 1;
+        /* SECOND RING */
+
+        .portal-ring::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border-radius: 50%;
+
+            border:
+                2px dashed
+                rgba(
+                    255,
+                    90,
+                    110,
+                    0.85
+                );
+
+            box-shadow:
+
+                0 0 20px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.7
+                    );
+
+            animation:
+                portalRotateReverse
+                4s linear infinite;
         }
-      }
 
-      @keyframes particlesRotate {
-        from {
-          transform: rotate(0deg) scale(1);
+
+        /* INNER RING */
+
+        .portal-ring::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 28px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    180,
+                    190,
+                    0.65
+                );
+
+            animation:
+                portalPulse
+                1.8s ease-in-out infinite;
         }
 
-        to {
-          transform: rotate(360deg) scale(1.05);
+
+        /* PORTAL CORE */
+
+        .portal-core {
+
+            position: absolute;
+
+            width: 72%;
+
+            height: 72%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        255,
+                        40,
+                        70,
+                        0.95
+                    ) 0%,
+
+                    rgba(
+                        120,
+                        0,
+                        20,
+                        0.85
+                    ) 28%,
+
+                    rgba(
+                        20,
+                        0,
+                        5,
+                        0.95
+                    ) 65%,
+
+                    #000000 100%
+                );
+
+            box-shadow:
+
+                0 0 30px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.9
+                    ),
+
+                0 0 80px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.7
+                    ),
+
+                0 0 150px
+                    rgba(
+                        255,
+                        23,
+                        68,
+                        0.4
+                    );
+
+            animation:
+                corePulse
+                1.5s ease-in-out infinite;
         }
-      }
 
-      @keyframes portalFloat {
-        0%,
-        100% {
-          transform: translateY(0);
+
+        /* PARTICLES */
+
+        .portal-particles {
+
+            position: absolute;
+
+            inset: -30%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 30%,
+                    #ff526d 0 2px,
+                    transparent 3px
+                ),
+
+                radial-gradient(
+                    circle at 75% 20%,
+                    #ff1744 0 2px,
+                    transparent 3px
+                ),
+
+                radial-gradient(
+                    circle at 85% 65%,
+                    #ff7187 0 2px,
+                    transparent 3px
+                ),
+
+                radial-gradient(
+                    circle at 30% 80%,
+                    #ff1744 0 2px,
+                    transparent 3px
+                ),
+
+                radial-gradient(
+                    circle at 55% 10%,
+                    #ffffff 0 1px,
+                    transparent 2px
+                ),
+
+                radial-gradient(
+                    circle at 10% 65%,
+                    #ff405f 0 2px,
+                    transparent 3px
+                );
+
+            filter:
+                drop-shadow(
+                    0 0 5px #ff1744
+                );
+
+            animation:
+                particlesRotate
+                9s linear infinite;
         }
 
-        50% {
-          transform: translateY(-8px);
+
+        /* ENERGY BURST */
+
+        .portal-burst {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
+            opacity: 0;
+
+            animation:
+                burst
+                1.2s ease-out 1.5s
+                forwards;
         }
-      }
 
-      @keyframes burst {
-        0% {
-          transform: scale(0.6);
 
-          opacity: 1;
+        /* PORTAL APPEAR */
+
+        @keyframes portalAppear {
+
+            0% {
+
+                transform:
+                    scale(0)
+                    rotate(-90deg);
+
+                opacity: 0;
+            }
+
+
+            45% {
+
+                transform:
+                    scale(0.65)
+                    rotate(-25deg);
+
+                opacity: 0.8;
+            }
+
+
+            75% {
+
+                transform:
+                    scale(1.08)
+                    rotate(5deg);
+
+                opacity: 1;
+            }
+
+
+            100% {
+
+                transform:
+                    scale(1)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
         }
 
-        100% {
-          transform: scale(1.8);
 
-          opacity: 0;
+        /* RING ROTATION */
+
+        @keyframes portalRotate {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+            }
+
+
+            to {
+
+                transform:
+                    rotate(360deg);
+            }
         }
-      }
 
-      /* =================================================
+
+        @keyframes portalRotateReverse {
+
+            from {
+
+                transform:
+                    rotate(360deg);
+            }
+
+
+            to {
+
+                transform:
+                    rotate(0deg);
+            }
+        }
+
+
+        /* INNER PULSE */
+
+        @keyframes portalPulse {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(0.9);
+
+                opacity: 0.4;
+            }
+
+
+            50% {
+
+                transform:
+                    scale(1.05);
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes corePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(0.9);
+
+                opacity: 0.75;
+            }
+
+
+            50% {
+
+                transform:
+                    scale(1.08);
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes particlesRotate {
+
+            from {
+
+                transform:
+                    rotate(0deg)
+                    scale(1);
+            }
+
+
+            to {
+
+                transform:
+                    rotate(360deg)
+                    scale(1.05);
+            }
+        }
+
+
+        @keyframes portalFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+
+            50% {
+
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        @keyframes burst {
+
+            0% {
+
+                transform:
+                    scale(0.6);
+
+                opacity: 1;
+            }
+
+
+            100% {
+
+                transform:
+                    scale(1.8);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =================================================
            NAVIGATION
            ================================================= */
 
-      header {
-        position: fixed;
+        header {
 
-        top: 0;
+            position: fixed;
 
-        left: 0;
+            top: 0;
 
-        width: 100%;
+            left: 0;
 
-        z-index: 1000;
+            width: 100%;
 
-        background: rgba(3, 3, 3, 0.94);
+            z-index: 1000;
 
-        backdrop-filter: blur(12px);
+            background:
+                rgba(
+                    3,
+                    3,
+                    3,
+                    0.94
+                );
 
-        border-bottom: 1px solid rgba(255, 23, 68, 0.25);
-      }
+            backdrop-filter:
+                blur(12px);
 
-      .nav {
-        min-height: 70px;
+            border-bottom:
+                1px solid
+                rgba(
+                    255,
+                    23,
+                    68,
+                    0.25
+                );
+        }
 
-        display: flex;
 
-        align-items: center;
+        .nav {
 
-        justify-content: space-between;
-      }
+            min-height: 70px;
 
-      .logo {
-        text-decoration: none;
+            display: flex;
 
-        font-family: Georgia, "Times New Roman", serif;
+            align-items: center;
 
-        font-size: 22px;
+            justify-content:
+                space-between;
+        }
 
-        font-weight: bold;
-      }
 
-      .logo span {
-        color: var(--red);
-      }
+        .logo {
 
-      .nav-links {
-        display: flex;
+            text-decoration: none;
 
-        align-items: center;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-        list-style: none;
+            font-size: 22px;
 
-        gap: 24px;
-      }
+            font-weight: bold;
+        }
 
-      .nav-links a {
-        text-decoration: none;
 
-        color: #888;
+        .logo span {
 
-        font-size: 12px;
+            color:
+                var(--red);
+        }
 
-        transition: 0.25s;
-      }
 
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--red);
-      }
+        .nav-links {
 
-      .nav-links a.active::before {
-        content: "> ";
+            display: flex;
 
-        color: var(--red);
-      }
+            align-items: center;
 
-      .menu-btn {
-        display: none;
+            list-style: none;
 
-        border: 1px solid #333;
+            gap: 24px;
+        }
 
-        background: #080808;
 
-        color: var(--red);
+        .nav-links a {
 
-        padding: 8px 12px;
+            text-decoration: none;
 
-        font-size: 20px;
+            color: #888;
 
-        cursor: pointer;
-      }
+            font-size: 12px;
 
-      /* =================================================
+            transition:
+                .25s;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color:
+                var(--red);
+        }
+
+
+        .nav-links a.active::before {
+
+            content: "> ";
+
+            color:
+                var(--red);
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            border:
+                1px solid #333;
+
+            background:
+                #080808;
+
+            color:
+                var(--red);
+
+            padding:
+                8px 12px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =================================================
            HERO
            ================================================= */
 
-      .hero {
-        min-height: 100svh;
+        .hero {
 
-        display: flex;
+            min-height:
+                100svh;
 
-        align-items: center;
+            display: flex;
 
-        padding-top: 100px;
+            align-items: center;
 
-        position: relative;
-      }
+            padding-top:
+                100px;
 
-      .hero-glow {
-        position: absolute;
-
-        width: 400px;
-
-        height: 400px;
-
-        border-radius: 50%;
-
-        background: var(--red);
-
-        filter: blur(180px);
-
-        opacity: 0.06;
-
-        pointer-events: none;
-      }
-
-      .status {
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 8px;
-
-        padding: 6px 12px;
-
-        color: var(--green);
-
-        border: 1px solid rgba(0, 255, 136, 0.25);
-
-        font-size: 10px;
-
-        margin-bottom: 25px;
-      }
-
-      .status-dot {
-        width: 6px;
-
-        height: 6px;
-
-        border-radius: 50%;
-
-        background: var(--green);
-
-        box-shadow: 0 0 10px var(--green);
-
-        animation: blink 1.2s infinite;
-      }
-
-      @keyframes blink {
-        50% {
-          opacity: 0.2;
+            position: relative;
         }
-      }
 
-      .terminal-command {
-        color: #555;
 
-        font-size: 13px;
+        .hero-glow {
 
-        margin-bottom: 12px;
-      }
+            position: absolute;
 
-      .hero h1 {
-        font-size: clamp(45px, 8vw, 90px);
+            width: 400px;
 
-        line-height: 1;
+            height: 400px;
 
-        margin-bottom: 20px;
+            border-radius: 50%;
 
-        letter-spacing: 2px;
-      }
+            background:
+                var(--red);
 
-      .hero h1 span {
-        color: var(--red);
+            filter:
+                blur(180px);
 
-        text-shadow: 0 0 25px rgba(255, 23, 68, 0.4);
-      }
+            opacity:
+                .06;
 
-      .hero h2 {
-        color: #888;
+            pointer-events:
+                none;
+        }
 
-        font-family: "Courier New", monospace;
 
-        font-size: clamp(15px, 2vw, 20px);
+        .status {
 
-        font-weight: normal;
+            display: inline-flex;
 
-        margin-bottom: 25px;
-      }
+            align-items: center;
 
-      .hero h2::before {
-        content: "[ ";
+            gap: 8px;
 
-        color: var(--green);
-      }
+            padding:
+                6px 12px;
 
-      .hero h2::after {
-        content: " ]";
+            color:
+                var(--green);
 
-        color: var(--green);
-      }
+            border:
+                1px solid
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.25
+                );
 
-      .hero-description {
-        max-width: 750px;
+            font-size: 10px;
 
-        color: #999;
+            margin-bottom:
+                25px;
+        }
 
-        font-size: 14px;
 
-        line-height: 2;
+        .status-dot {
 
-        margin-bottom: 20px;
-      }
+            width: 6px;
 
-      .hero-description::before {
-        content: "> ";
+            height: 6px;
 
-        color: var(--red);
-      }
+            border-radius: 50%;
 
-      .system-info {
-        display: flex;
+            background:
+                var(--green);
 
-        flex-wrap: wrap;
+            box-shadow:
+                0 0 10px
+                var(--green);
 
-        gap: 12px;
+            animation:
+                blink 1.2s infinite;
+        }
 
-        color: #555;
 
-        font-size: 10px;
+        @keyframes blink {
 
-        margin-bottom: 30px;
-      }
+            50% {
+                opacity: .2;
+            }
+        }
 
-      .online {
-        color: var(--green);
-      }
 
-      /* =================================================
+        .terminal-command {
+
+            color: #555;
+
+            font-size: 13px;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    45px,
+                    8vw,
+                    90px
+                );
+
+            line-height: 1;
+
+            margin-bottom:
+                20px;
+
+            letter-spacing:
+                2px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--red);
+
+            text-shadow:
+                0 0 25px
+                rgba(
+                    255,
+                    23,
+                    68,
+                    .4
+                );
+        }
+
+
+        .hero h2 {
+
+            color: #888;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size:
+                clamp(
+                    15px,
+                    2vw,
+                    20px
+                );
+
+            font-weight:
+                normal;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .hero h2::before {
+
+            content: "[ ";
+
+            color:
+                var(--green);
+        }
+
+
+        .hero h2::after {
+
+            content: " ]";
+
+            color:
+                var(--green);
+        }
+
+
+        .hero-description {
+
+            max-width:
+                750px;
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .hero-description::before {
+
+            content: "> ";
+
+            color:
+                var(--red);
+        }
+
+
+        .system-info {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            color: #555;
+
+            font-size: 10px;
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .online {
+
+            color:
+                var(--green);
+        }
+
+
+        /* =================================================
            BUTTONS
            ================================================= */
 
-      .buttons {
-        display: flex;
+        .buttons {
 
-        flex-wrap: wrap;
+            display: flex;
 
-        gap: 10px;
-      }
+            flex-wrap: wrap;
 
-      .btn {
-        display: inline-flex;
+            gap: 10px;
+        }
 
-        align-items: center;
 
-        justify-content: center;
+        .btn {
 
-        padding: 12px 20px;
+            display: inline-flex;
 
-        text-decoration: none;
+            align-items: center;
 
-        font-family: inherit;
+            justify-content: center;
 
-        font-size: 11px;
+            padding:
+                12px 20px;
 
-        border: 1px solid #333;
+            text-decoration:
+                none;
 
-        transition: 0.25s;
-      }
+            font-family:
+                inherit;
 
-      .btn-primary {
-        color: white;
+            font-size:
+                11px;
 
-        background: #8b001d;
+            border:
+                1px solid #333;
 
-        border-color: var(--red);
-      }
+            transition:
+                .25s;
+        }
 
-      .btn-primary:hover {
-        background: var(--red);
 
-        transform: translateY(-3px);
+        .btn-primary {
 
-        box-shadow: 0 0 25px rgba(255, 23, 68, 0.35);
-      }
+            color:
+                white;
 
-      .btn-secondary {
-        color: #aaa;
+            background:
+                #8b001d;
 
-        background: transparent;
-      }
+            border-color:
+                var(--red);
+        }
 
-      .btn-secondary:hover {
-        color: var(--red);
 
-        border-color: var(--red);
+        .btn-primary:hover {
 
-        transform: translateY(-3px);
-      }
+            background:
+                var(--red);
 
-      /* =================================================
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 25px
+                rgba(
+                    255,
+                    23,
+                    68,
+                    .35
+                );
+        }
+
+
+        .btn-secondary {
+
+            color: #aaa;
+
+            background:
+                transparent;
+        }
+
+
+        .btn-secondary:hover {
+
+            color:
+                var(--red);
+
+            border-color:
+                var(--red);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =================================================
            TAGS
            ================================================= */
 
-      .interests {
-        margin-top: 45px;
-      }
+        .interests {
 
-      .interest-tags {
-        display: flex;
+            margin-top:
+                45px;
+        }
 
-        flex-wrap: wrap;
 
-        gap: 8px;
-      }
+        .interest-tags {
 
-      .tag {
-        display: inline-block;
+            display: flex;
 
-        padding: 7px 12px;
+            flex-wrap: wrap;
 
-        background: #080808;
+            gap: 8px;
+        }
 
-        border: 1px solid #292929;
 
-        color: #999;
+        .tag {
 
-        font-size: 10px;
+            display: inline-block;
 
-        transition: 0.25s;
-      }
+            padding:
+                7px 12px;
 
-      .tag:hover {
-        color: var(--red);
+            background:
+                #080808;
 
-        border-color: var(--red);
-      }
+            border:
+                1px solid #292929;
 
-      /* =================================================
+            color: #999;
+
+            font-size: 10px;
+
+            transition:
+                .25s;
+        }
+
+
+        .tag:hover {
+
+            color:
+                var(--red);
+
+            border-color:
+                var(--red);
+        }
+
+
+        /* =================================================
            SECTION TITLES
            ================================================= */
 
-      .section-title {
-        display: flex;
+        .section-title {
 
-        align-items: center;
+            display: flex;
 
-        gap: 10px;
+            align-items: center;
 
-        font-size: 28px;
+            gap: 10px;
 
-        margin-bottom: 35px;
-      }
+            font-size:
+                28px;
 
-      .section-title::before {
-        content: "//";
+            margin-bottom:
+                35px;
+        }
 
-        color: var(--red);
 
-        font-family: monospace;
-      }
+        .section-title::before {
 
-      /* =================================================
+            content: "//";
+
+            color:
+                var(--red);
+
+            font-family:
+                monospace;
+        }
+
+
+        /* =================================================
            CARDS
            ================================================= */
 
-      .card,
-      .skill-card,
-      .experience-card,
-      .project-card,
-      .education-card,
-      .contact-box {
-        background: var(--panel);
+        .card,
+        .skill-card,
+        .experience-card,
+        .project-card,
+        .education-card,
+        .contact-box {
 
-        border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-        transition: 0.3s;
-      }
+            border:
+                1px solid
+                var(--border);
 
-      .card:hover,
-      .skill-card:hover,
-      .experience-card:hover,
-      .project-card:hover,
-      .education-card:hover {
-        border-color: var(--red);
-      }
+            transition:
+                .3s;
+        }
 
-      /* =================================================
+
+        .card:hover,
+        .skill-card:hover,
+        .experience-card:hover,
+        .project-card:hover,
+        .education-card:hover {
+
+            border-color:
+                var(--red);
+        }
+
+
+        /* =================================================
            SKILLS
            ================================================= */
 
-      .skills-grid {
-        display: grid;
+        .skills-grid {
 
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            display: grid;
 
-        gap: 15px;
-      }
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        230px,
+                        1fr
+                    )
+                );
 
-      .skill-card {
-        position: relative;
+            gap: 15px;
+        }
 
-        padding: 22px;
-      }
 
-      .skill-code {
-        position: absolute;
+        .skill-card {
 
-        top: 8px;
+            position: relative;
 
-        right: 10px;
+            padding:
+                22px;
+        }
 
-        color: #333;
 
-        font-size: 8px;
-      }
+        .skill-code {
 
-      .skill-name {
-        font-size: 13px;
+            position: absolute;
 
-        font-weight: bold;
+            top: 8px;
 
-        margin-bottom: 8px;
-      }
+            right: 10px;
 
-      .skill-level {
-        display: inline-block;
+            color:
+                #333;
 
-        padding: 3px 7px;
+            font-size:
+                8px;
+        }
 
-        color: var(--green);
 
-        border: 1px solid rgba(0, 255, 136, 0.2);
+        .skill-name {
 
-        font-size: 9px;
-      }
+            font-size:
+                13px;
 
-      /* =================================================
+            font-weight:
+                bold;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .skill-level {
+
+            display: inline-block;
+
+            padding:
+                3px 7px;
+
+            color:
+                var(--green);
+
+            border:
+                1px solid
+                rgba(
+                    0,
+                    255,
+                    136,
+                    .2
+                );
+
+            font-size:
+                9px;
+        }
+
+
+        /* =================================================
            EXPERIENCE
            ================================================= */
 
-      .experience-card {
-        padding: 30px;
-      }
+        .experience-card {
 
-      .experience-header {
-        display: flex;
+            padding:
+                30px;
+        }
 
-        align-items: flex-start;
 
-        justify-content: space-between;
+        .experience-header {
 
-        gap: 20px;
+            display: flex;
 
-        margin-bottom: 25px;
-      }
+            align-items:
+                flex-start;
 
-      .experience-title {
-        font-size: 19px;
+            justify-content:
+                space-between;
 
-        font-weight: bold;
-      }
+            gap: 20px;
 
-      .company {
-        color: var(--red);
+            margin-bottom:
+                25px;
+        }
 
-        font-size: 12px;
-      }
 
-      .date {
-        color: var(--green);
+        .experience-title {
 
-        border: 1px solid #333;
+            font-size:
+                19px;
 
-        padding: 5px 9px;
+            font-weight:
+                bold;
+        }
 
-        font-size: 9px;
 
-        white-space: nowrap;
-      }
+        .company {
 
-      .experience-card p {
-        color: #888;
+            color:
+                var(--red);
 
-        font-size: 12px;
-      }
+            font-size:
+                12px;
+        }
 
-      .experience-card h4 {
-        color: var(--red);
 
-        margin: 25px 0 10px;
+        .date {
 
-        font-size: 12px;
-      }
+            color:
+                var(--green);
 
-      .bullet-list {
-        list-style: none;
+            border:
+                1px solid #333;
 
-        display: grid;
+            padding:
+                5px 9px;
 
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            font-size:
+                9px;
 
-        gap: 7px;
-      }
+            white-space:
+                nowrap;
+        }
 
-      .bullet-list li {
-        color: #888;
 
-        font-size: 11px;
-      }
+        .experience-card p {
 
-      .bullet-list li::before {
-        content: "└─ ";
+            color:
+                #888;
 
-        color: var(--red);
-      }
+            font-size:
+                12px;
+        }
 
-      /* =================================================
+
+        .experience-card h4 {
+
+            color:
+                var(--red);
+
+            margin:
+                25px 0 10px;
+
+            font-size:
+                12px;
+        }
+
+
+        .bullet-list {
+
+            list-style:
+                none;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        220px,
+                        1fr
+                    )
+                );
+
+            gap: 7px;
+        }
+
+
+        .bullet-list li {
+
+            color:
+                #888;
+
+            font-size:
+                11px;
+        }
+
+
+        .bullet-list li::before {
+
+            content:
+                "└─ ";
+
+            color:
+                var(--red);
+        }
+
+
+        /* =================================================
            PROJECTS
            ================================================= */
 
-      .projects-grid {
-        display: grid;
+        .projects-grid {
 
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            display: grid;
 
-        gap: 18px;
-      }
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        230px,
+                        1fr
+                    )
+                );
 
-      .project-card {
-        overflow: hidden;
-      }
+            gap: 18px;
+            align-items: start;
+        }
 
-      .project-image {
-        height: 170px;
 
-        display: flex;
+        .project-card {
 
-        align-items: center;
+            overflow:
+                hidden;
+        }
 
-        justify-content: center;
 
-        background:
-          radial-gradient(circle, rgba(176, 0, 32, 0.25), transparent 60%),
-          #070707;
+        .project-image {
 
-        border-bottom: 1px solid #272727;
+            height:
+                170px;
 
-        color: var(--red);
+            display: flex;
 
-        font-size: 42px;
-      }
+            align-items:
+                center;
 
-      .project-content {
-        padding: 20px;
-      }
+            justify-content:
+                center;
 
-      .project-number {
-        color: var(--green);
+            background:
 
-        font-size: 9px;
+                radial-gradient(
+                    circle,
+                    rgba(
+                        176,
+                        0,
+                        32,
+                        .25
+                    ),
+                    transparent 60%
+                ),
 
-        letter-spacing: 2px;
+                #070707;
 
-        margin-bottom: 7px;
-      }
+            border-bottom:
+                1px solid #272727;
 
-      .project-content h3 {
-        font-size: 17px;
-      }
+            color:
+                var(--red);
 
-      .project-category {
-        color: #666;
+            font-size:
+                42px;
+        }
 
-        font-size: 10px;
 
-        margin-bottom: 15px;
-      }
+        .project-content {
 
-      .project-tools {
-        display: inline-block;
+            padding:
+                20px;
+        }
 
-        color: var(--red);
 
-        border: 1px solid rgba(255, 23, 68, 0.2);
+        .project-number {
 
-        padding: 4px 8px;
+            color:
+                var(--green);
 
-        font-size: 9px;
-      }
+            font-size:
+                9px;
 
-      /* =================================================
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .project-content h3 {
+
+            font-size:
+                17px;
+        }
+
+
+        .project-category {
+
+            color:
+                #666;
+
+            font-size:
+                10px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .project-tools {
+
+            display:
+                inline-block;
+
+            color:
+                var(--red);
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    23,
+                    68,
+                    .2
+                );
+
+            padding:
+                4px 8px;
+
+            font-size:
+                9px;
+        }
+
+
+        /* =================================================
            EDUCATION
            ================================================= */
 
-      .education-card {
-        display: flex;
+        .education-card {
 
-        align-items: center;
+            display: flex;
 
-        justify-content: space-between;
+            align-items:
+                center;
 
-        gap: 20px;
+            justify-content:
+                space-between;
 
-        padding: 25px;
-      }
+            gap: 20px;
 
-      .degree {
-        font-size: 18px;
-      }
+            padding:
+                25px;
+        }
 
-      .college {
-        color: var(--red);
 
-        font-size: 12px;
-      }
+        .degree {
 
-      .education-info {
-        color: #666;
+            font-size:
+                18px;
+        }
 
-        font-size: 10px;
-      }
 
-      .education-year {
-        color: var(--green);
+        .college {
 
-        border: 1px solid #333;
+            color:
+                var(--red);
 
-        padding: 5px 10px;
+            font-size:
+                12px;
+        }
 
-        font-size: 9px;
 
-        white-space: nowrap;
-      }
+        .education-info {
 
-      /* =================================================
+            color:
+                #666;
+
+            font-size:
+                10px;
+        }
+
+
+        .education-year {
+
+            color:
+                var(--green);
+
+            border:
+                1px solid #333;
+
+            padding:
+                5px 10px;
+
+            font-size:
+                9px;
+
+            white-space:
+                nowrap;
+        }
+
+
+        /* =================================================
            CONTACT
            ================================================= */
 
-      .contact-box {
-        padding: 45px 30px;
+        .contact-box {
 
-        text-align: center;
-      }
+            padding:
+                45px 30px;
 
-      .contact-box h3 {
-        font-size: 25px;
+            text-align:
+                center;
+        }
 
-        margin-bottom: 10px;
-      }
 
-      .contact-box p {
-        max-width: 650px;
+        .contact-box h3 {
 
-        margin: auto;
+            font-size:
+                25px;
 
-        color: #777;
+            margin-bottom:
+                10px;
+        }
 
-        font-size: 12px;
-      }
 
-      .contact-links {
-        display: flex;
+        .contact-box p {
 
-        justify-content: center;
+            max-width:
+                650px;
 
-        flex-wrap: wrap;
+            margin:
+                auto;
 
-        gap: 10px;
+            color:
+                #777;
 
-        margin-top: 25px;
-      }
+            font-size:
+                12px;
+        }
 
-      .contact-link {
-        text-decoration: none;
 
-        color: #aaa;
+        .contact-links {
 
-        border: 1px solid #2b2b2b;
+            display:
+                flex;
 
-        background: #080808;
+            justify-content:
+                center;
 
-        padding: 10px 15px;
+            flex-wrap:
+                wrap;
 
-        font-size: 10px;
+            gap:
+                10px;
 
-        transition: 0.25s;
-      }
+            margin-top:
+                25px;
+        }
 
-      .contact-link:hover {
-        color: var(--red);
 
-        border-color: var(--red);
-      }
+        .contact-link {
 
-      /* =================================================
+            text-decoration:
+                none;
+
+            color:
+                #aaa;
+
+            border:
+                1px solid #2b2b2b;
+
+            background:
+                #080808;
+
+            padding:
+                10px 15px;
+
+            font-size:
+                10px;
+
+            transition:
+                .25s;
+        }
+
+
+        .contact-link:hover {
+
+            color:
+                var(--red);
+
+            border-color:
+                var(--red);
+        }
+
+
+        /* =================================================
            FOOTER
            ================================================= */
 
-      footer {
-        margin-top: 80px;
+        footer {
 
-        padding: 30px;
+            margin-top:
+                80px;
 
-        text-align: center;
+            padding:
+                30px;
 
-        border-top: 1px solid #222;
+            text-align:
+                center;
 
-        color: #555;
+            border-top:
+                1px solid #222;
 
-        font-size: 9px;
-      }
+            color:
+                #555;
 
-      footer .green {
-        color: var(--green);
-      }
+            font-size:
+                9px;
+        }
 
-      /* =================================================
+
+        footer .green {
+
+            color:
+                var(--green);
+        }
+
+
+        /* =================================================
            TABLET
            ================================================= */
 
-      @media (max-width: 900px) {
-        .nav-links {
-          gap: 14px;
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    14px;
+            }
+
+
+            .nav-links a {
+
+                font-size:
+                    10px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    65px;
+            }
+
+
+            .skills-grid,
+            .projects-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+            }
         }
 
-        .nav-links a {
-          font-size: 10px;
-        }
 
-        .hero h1 {
-          font-size: 65px;
-        }
-
-        .skills-grid,
-        .projects-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      /* =================================================
+        /* =================================================
            ANDROID / MOBILE
            ================================================= */
 
-      @media (max-width: 700px) {
-        .container {
-          padding: 0 18px;
+        @media (max-width: 700px) {
+
+            .container {
+
+                padding:
+                    0 18px;
+            }
+
+
+            section {
+
+                padding:
+                    80px 0 25px;
+            }
+
+
+            /* MOBILE NAV */
+
+            .menu-btn {
+
+                display:
+                    block;
+            }
+
+
+            .nav-links {
+
+                position:
+                    absolute;
+
+                top:
+                    70px;
+
+                left:
+                    0;
+
+                width:
+                    100%;
+
+                display:
+                    none;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    0;
+
+                background:
+                    rgba(
+                        5,
+                        5,
+                        5,
+                        .98
+                    );
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+                max-height:
+                    calc(
+                        100svh - 70px
+                    );
+
+                overflow-y:
+                    auto;
+            }
+
+
+            .nav-links.open {
+
+                display:
+                    flex;
+            }
+
+
+            .nav-links li {
+
+                width:
+                    100%;
+
+                border-bottom:
+                    1px solid
+                    #171717;
+            }
+
+
+            .nav-links a {
+
+                display:
+                    block;
+
+                width:
+                    100%;
+
+                padding:
+                    15px 20px;
+
+                font-size:
+                    12px;
+            }
+
+
+            /* HERO */
+
+            .hero {
+
+                min-height:
+                    100svh;
+
+                padding-top:
+                    110px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        40px,
+                        13vw,
+                        58px
+                    );
+
+                letter-spacing:
+                    0;
+            }
+
+
+            .hero h2 {
+
+                font-size:
+                    14px;
+            }
+
+
+            .hero-description {
+
+                font-size:
+                    12px;
+
+                line-height:
+                    1.9;
+            }
+
+
+            /* BUTTONS */
+
+            .buttons {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    1fr;
+
+                width:
+                    100%;
+            }
+
+
+            .btn {
+
+                width:
+                    100%;
+
+                min-height:
+                    46px;
+            }
+
+
+            /* GRID */
+
+            .skills-grid,
+            .projects-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            /* EXPERIENCE */
+
+            .experience-card {
+
+                padding:
+                    20px;
+            }
+
+
+            .experience-header {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .date {
+
+                white-space:
+                    normal;
+            }
+
+
+            .bullet-list {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            /* PROJECT */
+
+            .project-image {
+
+                height:
+                    145px;
+            }
+
+
+            /* EDUCATION */
+
+            .education-card {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .education-year {
+
+                white-space:
+                    normal;
+            }
+
+
+            /* CONTACT */
+
+            .contact-box {
+
+                padding:
+                    30px 18px;
+            }
+
+
+            .contact-links {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .contact-link {
+
+                width:
+                    100%;
+
+                min-height:
+                    44px;
+
+                display:
+                    flex;
+
+                justify-content:
+                    center;
+
+                align-items:
+                    center;
+            }
         }
 
-        section {
-          padding: 80px 0 25px;
-        }
 
-        /* MOBILE NAV */
-
-        .menu-btn {
-          display: block;
-        }
-
-        .nav-links {
-          position: absolute;
-
-          top: 70px;
-
-          left: 0;
-
-          width: 100%;
-
-          display: none;
-
-          flex-direction: column;
-
-          gap: 0;
-
-          background: rgba(5, 5, 5, 0.98);
-
-          border-bottom: 1px solid var(--border);
-
-          max-height: calc(100svh - 70px);
-
-          overflow-y: auto;
-        }
-
-        .nav-links.open {
-          display: flex;
-        }
-
-        .nav-links li {
-          width: 100%;
-
-          border-bottom: 1px solid #171717;
-        }
-
-        .nav-links a {
-          display: block;
-
-          width: 100%;
-
-          padding: 15px 20px;
-
-          font-size: 12px;
-        }
-
-        /* HERO */
-
-        .hero {
-          min-height: 100svh;
-
-          padding-top: 110px;
-        }
-
-        .hero h1 {
-          font-size: clamp(40px, 13vw, 58px);
-
-          letter-spacing: 0;
-        }
-
-        .hero h2 {
-          font-size: 14px;
-        }
-
-        .hero-description {
-          font-size: 12px;
-
-          line-height: 1.9;
-        }
-
-        /* BUTTONS */
-
-        .buttons {
-          display: grid;
-
-          grid-template-columns: 1fr;
-
-          width: 100%;
-        }
-
-        .btn {
-          width: 100%;
-
-          min-height: 46px;
-        }
-
-        /* GRID */
-
-        .skills-grid,
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        /* EXPERIENCE */
-
-        .experience-card {
-          padding: 20px;
-        }
-
-        .experience-header {
-          flex-direction: column;
-        }
-
-        .date {
-          white-space: normal;
-        }
-
-        .bullet-list {
-          grid-template-columns: 1fr;
-        }
-
-        /* PROJECT */
-
-        .project-image {
-          height: 145px;
-        }
-
-        /* EDUCATION */
-
-        .education-card {
-          flex-direction: column;
-
-          align-items: flex-start;
-        }
-
-        .education-year {
-          white-space: normal;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-          padding: 30px 18px;
-        }
-
-        .contact-links {
-          flex-direction: column;
-        }
-
-        .contact-link {
-          width: 100%;
-
-          min-height: 44px;
-
-          display: flex;
-
-          justify-content: center;
-
-          align-items: center;
-        }
-      }
-
-      /* =================================================
+        /* =================================================
            SMALL ANDROID
            ================================================= */
 
-      @media (max-width: 400px) {
-        .container {
-          padding: 0 14px;
+        @media (max-width: 400px) {
+
+            .container {
+
+                padding:
+                    0 14px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    38px;
+            }
+
+
+            .hero h2 {
+
+                font-size:
+                    12px;
+            }
+
+
+            .section-title {
+
+                font-size:
+                    21px;
+            }
+
+
+            .experience-title {
+
+                font-size:
+                    16px;
+            }
+
+
+            .project-content h3 {
+
+                font-size:
+                    15px;
+            }
         }
 
-        .hero h1 {
-          font-size: 38px;
-        }
 
-        .hero h2 {
-          font-size: 12px;
-        }
-
-        .section-title {
-          font-size: 21px;
-        }
-
-        .experience-title {
-          font-size: 16px;
-        }
-
-        .project-content h3 {
-          font-size: 15px;
-        }
-      }
-
-      /* =================================================
+        /* =================================================
            ANDROID LANDSCAPE
            ================================================= */
 
-      @media (max-height: 500px) and (orientation: landscape) {
-        .hero {
-          min-height: auto;
+        @media (
+            max-height: 500px
+        ) and (
+            orientation: landscape
+        ) {
 
-          padding-top: 110px;
+            .hero {
 
-          padding-bottom: 80px;
+                min-height:
+                    auto;
+
+                padding-top:
+                    110px;
+
+                padding-bottom:
+                    80px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    45px;
+            }
+
+
+            .nav-links {
+
+                max-height:
+                    80vh;
+            }
         }
 
-        .hero h1 {
-          font-size: 45px;
-        }
 
-        .nav-links {
-          max-height: 80vh;
-        }
-      }
-
-      /* =================================================
+        /* =================================================
            TOUCH DEVICES
            ================================================= */
 
-      @media (hover: none) {
-        .btn:hover,
-        .tag:hover,
-        .skill-card:hover,
-        .project-card:hover,
-        .experience-card:hover,
-        .education-card:hover {
-          transform: none;
+        @media (hover: none) {
+
+            .btn:hover,
+            .tag:hover,
+            .skill-card:hover,
+            .project-card:hover,
+            .experience-card:hover,
+            .education-card:hover {
+
+                transform:
+                    none;
+            }
+
+
+            .btn,
+            .contact-link,
+            .nav-links a,
+            .menu-btn {
+
+                -webkit-tap-highlight-color:
+                    transparent;
+            }
         }
 
-        .btn,
-        .contact-link,
-        .nav-links a,
-        .menu-btn {
-          -webkit-tap-highlight-color: transparent;
-        }
-      }
 
-      /* =================================================
+        /* =================================================
            REDUCED MOTION
            ================================================= */
 
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
         }
 
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
+    
 
-          animation-iteration-count: 1 !important;
-
-          transition-duration: 0.01ms !important;
-        }
-      }
-
-      /* =================================================
+        /* =================================================
            EXPANDABLE CAD DRAWING PROJECTS
            ================================================= */
 
-      .project-details {
-        min-width: 0;
-        overflow: hidden;
-      }
-
-      .project-details summary {
-        display: block;
-        padding: 20px;
-        cursor: pointer;
-        list-style: none;
-        user-select: none;
-        outline: none;
-      }
-
-      .project-details summary::-webkit-details-marker {
-        display: none;
-      }
-
-      .project-details summary:focus-visible {
-        outline: 1px solid var(--red);
-        outline-offset: -4px;
-      }
-
-      .project-details summary h3 {
-        margin: 8px 0;
-        font-size: 17px;
-      }
-
-      .project-details summary::after {
-        content: "+ OPEN DRAWING";
-        display: block;
-        margin-top: 14px;
-        color: var(--red);
-        font-size: 10px;
-        letter-spacing: 1px;
-      }
-
-      .project-details[open] summary::after {
-        content: "− CLOSE DRAWING";
-      }
-
-      .project-details[open] {
-        border-color: var(--red);
-      }
-
-      .project-reveal {
-        padding: 0 20px 20px;
-        border-top: 1px solid var(--border);
-      }
-
-      .drawing-preview {
-        min-height: 150px;
-        margin-top: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-        background: #080808;
-        border: 1px solid var(--border);
-        text-align: center;
-      }
-
-      .drawing-preview img {
-        display: block;
-        width: 100%;
-        max-height: 420px;
-        object-fit: contain;
-        background: #fff;
-      }
-
-      .drawing-preview iframe {
-        display: block;
-        width: 100%;
-        height: 460px;
-        border: 0;
-        background: #fff;
-      }
-
-      @media (max-width: 700px) {
-        .drawing-preview iframe {
-          height: 340px;
+        .project-details {
+            min-width: 0;
+            overflow: hidden;
         }
-      }
 
-      .preview-placeholder {
-        color: #888;
-        font-size: 10px;
-        line-height: 1.8;
-      }
+        .project-details summary {
+            display: block;
+            padding: 20px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            outline: none;
+        }
 
-      .project-download {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 14px;
-        padding: 10px 14px;
-        color: var(--green);
-        border: 1px solid rgba(0, 255, 136, 0.35);
-        text-decoration: none;
-        font-size: 10px;
-        transition: 0.25s;
-      }
+        .project-details summary::-webkit-details-marker {
+            display: none;
+        }
 
-      .project-download:hover {
-        color: #030303;
-        background: var(--green);
-        border-color: var(--green);
-      }
+        .project-details summary:focus-visible {
+            outline: 1px solid var(--red);
+            outline-offset: -4px;
+        }
+
+        .project-details summary h3 {
+            margin: 8px 0;
+            font-size: 17px;
+        }
+
+        .project-details summary::after {
+            content: "+ OPEN DRAWING";
+            display: block;
+            margin-top: 14px;
+            color: var(--red);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .project-details[open] summary::after {
+            content: "− CLOSE DRAWING";
+        }
+
+        .project-details[open] {
+            border-color: var(--red);
+        }
+
+        .project-reveal {
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .drawing-preview {
+            min-height: 150px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background: #080808;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .drawing-preview img {
+            display: block;
+            width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .drawing-preview iframe {
+            display: block;
+            width: 100%;
+            height: 300px;
+            border: 0;
+            background: #fff;
+        }
+
+        @media (max-width: 700px) {
+            .drawing-preview iframe {
+                height: 260px;
+            }
+        }
+
+        .preview-placeholder {
+            color: #888;
+            font-size: 10px;
+            line-height: 1.8;
+        }
+
+        .project-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 10px 14px;
+            color: var(--green);
+            border: 1px solid rgba(0, 255, 136, .35);
+            text-decoration: none;
+            font-size: 10px;
+            transition: .25s;
+        }
+
+        .project-download:hover {
+            color: #030303;
+            background: var(--green);
+            border-color: var(--green);
+        }
+
     </style>
-  </head>
 
-  <body>
+</head>
+
+
+<body>
+
+
     <!-- =================================================
          CINEMATIC PORTAL OPENING
          ================================================= -->
 
     <div id="bootScreen">
-      <div class="portal">
-        <div class="portal-particles"></div>
 
-        <div class="portal-ring"></div>
+        <div class="portal">
 
-        <div class="portal-core"></div>
+            <div class="portal-particles"></div>
 
-        <div class="portal-burst"></div>
-      </div>
+            <div class="portal-ring"></div>
+
+            <div class="portal-core"></div>
+
+            <div class="portal-burst"></div>
+
+        </div>
+
     </div>
+
 
     <!-- =================================================
          NAVIGATION
          ================================================= -->
 
     <header>
-      <div class="container nav">
-        <a href="#home" class="logo"> HariPrasath<span>.</span> </a>
 
-        <button
-          class="menu-btn"
-          id="menuBtn"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-        >
-          ☰
-        </button>
+        <div class="container nav">
 
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="#home" class="active"> Home </a>
-          </li>
+            <a
+                href="#home"
+                class="logo"
+            >
+                HariPrasath<span>.</span>
+            </a>
 
-          <li>
-            <a href="#about"> About </a>
-          </li>
 
-          <li>
-            <a href="#skills"> Skills </a>
-          </li>
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
 
-          <li>
-            <a href="#experience"> Experience </a>
-          </li>
 
-          <li>
-            <a href="#projects"> Projects </a>
-          </li>
+            <ul
+                class="nav-links"
+                id="navLinks"
+            >
 
-          <li>
-            <a href="#education"> Education </a>
-          </li>
+                <li>
+                    <a
+                        href="#home"
+                        class="active"
+                    >
+                        Home
+                    </a>
+                </li>
 
-          <li>
-            <a href="#contact"> Contact </a>
-          </li>
-        </ul>
-      </div>
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#experience">
+                        Experience
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#education">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
     </header>
+
 
     <!-- =================================================
          MAIN
          ================================================= -->
 
     <main>
-      <!-- =================================================
+
+
+        <!-- =================================================
              HERO
              ================================================= -->
 
-      <section class="hero" id="home">
-        <div class="hero-glow" id="heroGlow"></div>
+        <section
+            class="hero"
+            id="home"
+        >
 
-        <div class="container">
-          <div class="status">
-            <span class="status-dot"></span>
+            <div
+                class="hero-glow"
+                id="heroGlow"
+            ></div>
 
-            SYSTEM ONLINE
-          </div>
 
-          <div class="terminal-command" id="terminalCommand"></div>
+            <div class="container">
 
-          <h1>
-            HariPrasath
-            <span>P</span>
-          </h1>
 
-          <h2>Mechanical Engineering Student</h2>
+                <div class="status">
 
-          <p class="hero-description">
-            I am a third-year Mechanical Engineering student with a strong
-            interest in mechanical design, CAD, manufacturing, automobiles,
-            robotics, and additive manufacturing.
-          </p>
+                    <span
+                        class="status-dot"
+                    ></span>
 
-          <div class="system-info">
-            <span class="online"> ● ONLINE </span>
+                    SYSTEM ONLINE
 
-            <span>|</span>
+                </div>
 
-            <span> MODE: ENGINEERING </span>
 
-            <span>|</span>
+                <div
+                    class="terminal-command"
+                    id="terminalCommand"
+                ></div>
 
-            <span> STATUS: 3RD YEAR </span>
-          </div>
 
-          <div class="buttons">
-            <a
-              href="mailto:sit24me031@sairamtap.edu.in"
-              class="btn btn-primary"
-            >
-              ✉ Contact Me
-            </a>
+                <h1>
 
-            <a
-              href="https://github.com/Harry13181/Portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary"
-            >
-              GitHub
-            </a>
+                    HariPrasath
+                    <span>P</span>
 
-            <a
-              href="https://www.linkedin.com/in/hari-prasath-p-bb4b11404"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary"
-            >
-              LinkedIn
-            </a>
-          </div>
+                </h1>
 
-          <div class="interests">
-            <div class="terminal-command">$ cat interests.txt</div>
 
-            <div class="interest-tags">
-              <span class="tag"> CAD </span>
+                <h2>
 
-              <span class="tag"> Mechanical Design </span>
+                    Mechanical Engineering Student
 
-              <span class="tag"> Manufacturing </span>
+                </h2>
 
-              <span class="tag"> Automobiles </span>
 
-              <span class="tag"> Robotics </span>
+                <p class="hero-description">
 
-              <span class="tag"> 3D Printing </span>
+                    I am a third-year Mechanical
+                    Engineering student with a strong
+                    interest in mechanical design, CAD,
+                    manufacturing, automobiles, robotics,
+                    and additive manufacturing.
 
-              <span class="tag"> Engineering Design </span>
+                </p>
+
+
+                <div class="system-info">
+
+                    <span class="online">
+                        ● ONLINE
+                    </span>
+
+                    <span>|</span>
+
+                    <span>
+                        MODE: ENGINEERING
+                    </span>
+
+                    <span>|</span>
+
+                    <span>
+                        STATUS: 3RD YEAR
+                    </span>
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <a
+                        href="mailto:sit24me031@sairamtap.edu.in"
+                        class="btn btn-primary"
+                    >
+                        ✉ Contact Me
+                    </a>
+
+
+                    <a
+                        href="https://github.com/Harry13181/Portfolio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        GitHub
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/hari-prasath-p-bb4b11404"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        LinkedIn
+                    </a>
+
+                </div>
+
+
+                <div class="interests">
+
+                    <div class="terminal-command">
+
+                        $ cat interests.txt
+
+                    </div>
+
+
+                    <div class="interest-tags">
+
+                        <span class="tag">
+                            CAD
+                        </span>
+
+                        <span class="tag">
+                            Mechanical Design
+                        </span>
+
+                        <span class="tag">
+                            Manufacturing
+                        </span>
+
+                        <span class="tag">
+                            Automobiles
+                        </span>
+
+                        <span class="tag">
+                            Robotics
+                        </span>
+
+                        <span class="tag">
+                            3D Printing
+                        </span>
+
+                        <span class="tag">
+                            Engineering Design
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- =================================================
+        </section>
+
+
+        <!-- =================================================
              ABOUT
              ================================================= -->
 
-      <section id="about">
-        <div class="container reveal">
-          <h2 class="section-title">About Me</h2>
+        <section id="about">
 
-          <div class="experience-card">
-            <p>
-              I am currently pursuing a B.E. in Mechanical Engineering at Sri
-              Sairam Institute of Technology. I am interested in mechanical
-              design, CAD, manufacturing processes, automobiles, robotics, and
-              additive manufacturing.
-            </p>
+            <div
+                class="container reveal"
+            >
 
-            <br />
+                <h2 class="section-title">
+                    About Me
+                </h2>
 
-            <p>
-              I enjoy learning through practical work and engineering projects,
-              especially where digital design connects with physical
-              manufacturing.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <!-- =================================================
+                <div class="experience-card">
+
+                    <p>
+
+                        I am currently pursuing a
+                        B.E. in Mechanical Engineering
+                        at Sri Sairam Institute of
+                        Technology. I am interested in
+                        mechanical design, CAD,
+                        manufacturing processes,
+                        automobiles, robotics, and
+                        additive manufacturing.
+
+                    </p>
+
+
+                    <br>
+
+
+                    <p>
+
+                        I enjoy learning through practical
+                        work and engineering projects,
+                        especially where digital design
+                        connects with physical manufacturing.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
              SKILLS
              ================================================= -->
 
-      <section id="skills">
-        <div class="container">
-          <h2 class="section-title">Technical Skills</h2>
+        <section id="skills">
 
-          <div class="skills-grid">
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_01 </span>
+            <div class="container">
 
-              <div class="skill-name">SOLIDWORKS</div>
 
-              <span class="skill-level"> INTERMEDIATE </span>
+                <h2 class="section-title">
+                    Technical Skills
+                </h2>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_01
+                        </span>
+
+                        <div class="skill-name">
+                            SOLIDWORKS
+                        </div>
+
+                        <span class="skill-level">
+                            INTERMEDIATE
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_02
+                        </span>
+
+                        <div class="skill-name">
+                            AutoCAD / Autodesk
+                        </div>
+
+                        <span class="skill-level">
+                            INTERMEDIATE
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_03
+                        </span>
+
+                        <div class="skill-name">
+                            Engineering Drawing
+                        </div>
+
+                        <span class="skill-level">
+                            BASIC
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_04
+                        </span>
+
+                        <div class="skill-name">
+                            Manufacturing Processes
+                        </div>
+
+                        <span class="skill-level">
+                            BASIC
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_05
+                        </span>
+
+                        <div class="skill-name">
+                            C Programming
+                        </div>
+
+                        <span class="skill-level">
+                            INTERMEDIATE
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_06
+                        </span>
+
+                        <div class="skill-name">
+                            Python
+                        </div>
+
+                        <span class="skill-level">
+                            INTERMEDIATE
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <span class="skill-code">
+                            SKILL_07
+                        </span>
+
+                        <div class="skill-name">
+                            Git / GitHub
+                        </div>
+
+                        <span class="skill-level">
+                            BASIC
+                        </span>
+
+                    </div>
+
+
+                </div>
+
             </div>
 
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_02 </span>
+        </section>
 
-              <div class="skill-name">AutoCAD / Autodesk</div>
 
-              <span class="skill-level"> INTERMEDIATE </span>
-            </div>
-
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_03 </span>
-
-              <div class="skill-name">Engineering Drawing</div>
-
-              <span class="skill-level"> BASIC </span>
-            </div>
-
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_04 </span>
-
-              <div class="skill-name">Manufacturing Processes</div>
-
-              <span class="skill-level"> BASIC </span>
-            </div>
-
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_05 </span>
-
-              <div class="skill-name">C Programming</div>
-
-              <span class="skill-level"> INTERMEDIATE </span>
-            </div>
-
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_06 </span>
-
-              <div class="skill-name">Python</div>
-
-              <span class="skill-level"> INTERMEDIATE </span>
-            </div>
-
-            <div class="skill-card reveal">
-              <span class="skill-code"> SKILL_07 </span>
-
-              <div class="skill-name">Git / GitHub</div>
-
-              <span class="skill-level"> BASIC </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =================================================
+        <!-- =================================================
              EXPERIENCE
              ================================================= -->
 
-      <section id="experience">
-        <div class="container">
-          <h2 class="section-title">Internship Experience</h2>
+        <section id="experience">
 
-          <div class="experience-card reveal">
-            <div class="experience-header">
-              <div>
-                <div class="experience-title">
-                  Additive Manufacturing Intern
+            <div class="container">
+
+
+                <h2 class="section-title">
+                    Internship Experience
+                </h2>
+
+
+                <div class="experience-card reveal">
+
+
+                    <div class="experience-header">
+
+
+                        <div>
+
+                            <div class="experience-title">
+
+                                Additive Manufacturing
+                                Intern
+
+                            </div>
+
+
+                            <div class="company">
+
+                                Precision Engineering
+                                Technology Centre
+                                (PETC)
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="date">
+
+                            09-06-2026 —
+                            25-06-2026
+
+                        </div>
+
+
+                    </div>
+
+
+                    <p>
+
+                        Gained practical exposure to FDM
+                        and SLA additive manufacturing
+                        processes, model preparation,
+                        support structures, build-plate
+                        adhesion, infill, print quality,
+                        and machine operation.
+
+                    </p>
+
+
+                    <h4>
+                        Key Exposure
+                    </h4>
+
+
+                    <ul class="bullet-list">
+
+                        <li>
+                            FDM 3D Printing
+                        </li>
+
+                        <li>
+                            SLA 3D Printing
+                        </li>
+
+                        <li>
+                            Model Orientation
+                        </li>
+
+                        <li>
+                            Support Structures
+                        </li>
+
+                        <li>
+                            Build-Plate Adhesion
+                        </li>
+
+                        <li>
+                            Infill Selection
+                        </li>
+
+                        <li>
+                            Print Quality
+                        </li>
+
+                        <li>
+                            Machine Operation
+                        </li>
+
+                        <li>
+                            Filament Handling
+                        </li>
+
+                    </ul>
+
+
+                    <h4>
+                        Software & Tools
+                    </h4>
+
+
+                    <div class="interest-tags">
+
+                        <span class="tag">
+                            Fracktory
+                        </span>
+
+                        <span class="tag">
+                            Bambu Studio
+                        </span>
+
+                        <span class="tag">
+                            Voxeldance Tango
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="company">
-                  Precision Engineering Technology Centre (PETC)
-                </div>
-              </div>
-
-              <div class="date">09-06-2026 — 25-06-2026</div>
             </div>
 
-            <p>
-              Gained practical exposure to FDM and SLA additive manufacturing
-              processes, model preparation, support structures, build-plate
-              adhesion, infill, print quality, and machine operation.
-            </p>
+        </section>
 
-            <h4>Key Exposure</h4>
 
-            <ul class="bullet-list">
-              <li>FDM 3D Printing</li>
-
-              <li>SLA 3D Printing</li>
-
-              <li>Model Orientation</li>
-
-              <li>Support Structures</li>
-
-              <li>Build-Plate Adhesion</li>
-
-              <li>Infill Selection</li>
-
-              <li>Print Quality</li>
-
-              <li>Machine Operation</li>
-
-              <li>Filament Handling</li>
-            </ul>
-
-            <h4>Software & Tools</h4>
-
-            <div class="interest-tags">
-              <span class="tag"> Fracktory </span>
-
-              <span class="tag"> Bambu Studio </span>
-
-              <span class="tag"> Voxeldance Tango </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =================================================
+        <!-- =================================================
              PROJECTS
              ================================================= -->
 
-      <section id="projects">
-        <div class="container">
-          <h2 class="section-title">Engineering Projects</h2>
+        <section id="projects">
 
-          <p class="hero-description" style="margin-bottom: 25px">
-            Select a project name to reveal its drawing preview. You can also
-            download the original DWG file.
-          </p>
+            <div class="container">
 
-          <div class="projects-grid">
-            <!-- PROJECT 01: PLUMMER BLOCK -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_01</div>
-                <h3>Plummer Block</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <img
-                    src="assets/previews/plummer-block.png"
-                    alt="Plummer Block CAD drawing"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'block';
-                    "
-                  />
-                  <p class="preview-placeholder" style="display: none">
-                    PNG preview not added yet.<br />Export this drawing from
-                    AutoCAD as plummer-block.png into assets/previews/.
-                  </p>
+                <h2 class="section-title">
+                    Engineering Projects
+                </h2>
+
+                <p class="hero-description" style="margin-bottom:25px;">
+                    Select a project name to reveal its drawing preview. You can also download the original DWG file.
+                </p>
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 01: PLUMMER BLOCK -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_01</div>
+                            <h3>Plummer Block</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <img src="assets/previews/plummer-block.png" alt="Plummer Block CAD drawing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <p class="preview-placeholder" style="display:none;">PNG preview not added yet.<br>Export this drawing from AutoCAD as plummer-block.png into assets/previews/.</p>
+                            </div>
+                            <a class="project-download" href="assets/drawings/plummer-block.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 02: SCREW JACK -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_02</div>
+                            <h3>Screw Jack</h3>
+                            <div class="project-category">Machine Design</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <img src="assets/previews/screw-jack.png" alt="Screw Jack CAD drawing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <p class="preview-placeholder" style="display:none;">PNG preview not added yet.<br>Export this drawing from AutoCAD as screw-jack.png into assets/previews/.</p>
+                            </div>
+                            <a class="project-download" href="assets/drawings/screw-jack.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 03: SLEEVE & COTTER JOINT -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_03</div>
+                            <h3>Sleeve &amp; Cotter Joint</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <img src="assets/previews/sleeve-cotter-joint.png" alt="Sleeve and Cotter Joint CAD drawing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <p class="preview-placeholder" style="display:none;">PNG preview not added yet.<br>Export this drawing from AutoCAD as sleeve-cotter-joint.png into assets/previews/.</p>
+                            </div>
+                            <a class="project-download" href="assets/drawings/sleeve-cotter-joint.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 04: GIB & COTTER -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_04</div>
+                            <h3>Gib &amp; Cotter</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <img src="assets/previews/gib-cotter.png" alt="Gib and Cotter CAD drawing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <p class="preview-placeholder" style="display:none;">PNG preview not added yet.<br>Export this drawing from AutoCAD as gib-cotter.png into assets/previews/.</p>
+                            </div>
+                            <a class="project-download" href="assets/drawings/gib-cotter.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 05: ENGINE PISTON -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_05</div>
+                            <h3>Engine Piston</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <iframe
+                                    src="assets/previews/Engine%20Piston.pdf#toolbar=0&navpanes=0&view=FitH"
+                                    title="Engine Piston technical drawing"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <a class="project-download" href="assets/drawings/Engine%20Piston.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 06: FLANGE COUPLINGS -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_06</div>
+                            <h3>Flange Couplings</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <iframe
+                                    src="assets/previews/Flange%20Couplings.pdf#toolbar=0&navpanes=0&view=FitH"
+                                    title="Flange Couplings technical drawing"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <a class="project-download" href="assets/drawings/Flange%20Couplings.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 07: STUFFING BOX -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_07</div>
+                            <h3>Stuffing Box</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <iframe
+                                    src="assets/previews/Stuffing%20Box.pdf#toolbar=0&navpanes=0&view=FitH"
+                                    title="Stuffing Box technical drawing"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <a class="project-download" href="assets/drawings/Stuffing%20Box.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
+                    <!-- PROJECT 08: UNIVERSAL COUPLINGS -->
+                    <details class="project-details project-card reveal">
+                        <summary>
+                            <div class="project-number">PROJECT_08</div>
+                            <h3>Universal Couplings</h3>
+                            <div class="project-category">Machine Drawing</div>
+                            <span class="project-tools">AutoCAD</span>
+                        </summary>
+                        <div class="project-reveal">
+                            <div class="drawing-preview">
+                                <iframe
+                                    src="assets/previews/Universal%20Couplings.pdf#toolbar=0&navpanes=0&view=FitH"
+                                    title="Universal Couplings technical drawing"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <a class="project-download" href="assets/drawings/Universal%20Couplings.dwg" download>↓ DOWNLOAD DWG</a>
+                        </div>
+                    </details>
+
                 </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/plummer-block.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
+            </div>
+        </section>
 
-            <!-- PROJECT 02: SCREW JACK -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_02</div>
-                <h3>Screw Jack</h3>
-                <div class="project-category">Machine Design</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <img
-                    src="assets/previews/screw-jack.png"
-                    alt="Screw Jack CAD drawing"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'block';
-                    "
-                  />
-                  <p class="preview-placeholder" style="display: none">
-                    PNG preview not added yet.<br />Export this drawing from
-                    AutoCAD as screw-jack.png into assets/previews/.
-                  </p>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/screw-jack.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
 
-            <!-- PROJECT 03: SLEEVE & COTTER JOINT -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_03</div>
-                <h3>Sleeve &amp; Cotter Joint</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <img
-                    src="assets/previews/sleeve-cotter-joint.png"
-                    alt="Sleeve and Cotter Joint CAD drawing"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'block';
-                    "
-                  />
-                  <p class="preview-placeholder" style="display: none">
-                    PNG preview not added yet.<br />Export this drawing from
-                    AutoCAD as sleeve-cotter-joint.png into assets/previews/.
-                  </p>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/sleeve-cotter-joint.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-
-            <!-- PROJECT 04: GIB & COTTER -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_04</div>
-                <h3>Gib &amp; Cotter</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <img
-                    src="assets/previews/gib-cotter.png"
-                    alt="Gib and Cotter CAD drawing"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'block';
-                    "
-                  />
-                  <p class="preview-placeholder" style="display: none">
-                    PNG preview not added yet.<br />Export this drawing from
-                    AutoCAD as gib-cotter.png into assets/previews/.
-                  </p>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/gib-cotter.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-
-            <!-- PROJECT 05: ENGINE PISTON -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_05</div>
-                <h3>Engine Piston</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <iframe
-                    src="assets/previews/Engine%20Piston.pdf"
-                    title="Engine Piston technical drawing"
-                    loading="lazy"
-                  >
-                  </iframe>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/Engine%20Piston.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-
-            <!-- PROJECT 06: FLANGE COUPLINGS -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_06</div>
-                <h3>Flange Couplings</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <iframe
-                    src="assets/previews/Flange%20Couplings.pdf"
-                    title="Flange Couplings technical drawing"
-                    loading="lazy"
-                  >
-                  </iframe>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/Flange%20Couplings.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-
-            <!-- PROJECT 07: STUFFING BOX -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_07</div>
-                <h3>Stuffing Box</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <iframe
-                    src="assets/previews/Stuffing%20Box.pdf"
-                    title="Stuffing Box technical drawing"
-                    loading="lazy"
-                  >
-                  </iframe>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/Stuffing%20Box.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-
-            <!-- PROJECT 08: UNIVERSAL COUPLINGS -->
-            <details class="project-details project-card reveal">
-              <summary>
-                <div class="project-number">PROJECT_08</div>
-                <h3>Universal Couplings</h3>
-                <div class="project-category">Machine Drawing</div>
-                <span class="project-tools">AutoCAD</span>
-              </summary>
-              <div class="project-reveal">
-                <div class="drawing-preview">
-                  <iframe
-                    src="assets/previews/Universal%20Couplings.pdf"
-                    title="Universal Couplings technical drawing"
-                    loading="lazy"
-                  >
-                  </iframe>
-                </div>
-                <a
-                  class="project-download"
-                  href="assets/drawings/Universal%20Couplings.dwg"
-                  download
-                  >↓ DOWNLOAD DWG</a
-                >
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- =================================================
+        <!-- =================================================
              EDUCATION
              ================================================= -->
 
-      <section id="education">
-        <div class="container">
-          <h2 class="section-title">Education</h2>
+        <section id="education">
 
-          <div class="education-card reveal">
-            <div>
-              <div class="degree">B.E. Mechanical Engineering</div>
+            <div class="container">
 
-              <div class="college">Sri Sairam Institute of Technology</div>
 
-              <div class="education-info">Current Status: 3rd Year</div>
+                <h2 class="section-title">
+                    Education
+                </h2>
+
+
+                <div class="education-card reveal">
+
+
+                    <div>
+
+
+                        <div class="degree">
+
+                            B.E. Mechanical Engineering
+
+                        </div>
+
+
+                        <div class="college">
+
+                            Sri Sairam Institute
+                            of Technology
+
+                        </div>
+
+
+                        <div class="education-info">
+
+                            Current Status:
+                            3rd Year
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="education-year">
+
+                        2024 — 2028
+
+                    </div>
+
+
+                </div>
+
             </div>
 
-            <div class="education-year">2024 — 2028</div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =================================================
+
+        <!-- =================================================
              CONTACT
              ================================================= -->
 
-      <section id="contact">
-        <div class="container reveal">
-          <h2 class="section-title">Contact</h2>
+        <section id="contact">
 
-          <div class="contact-box">
-            <h3>Let's Connect</h3>
+            <div class="container reveal">
 
-            <p>
-              Interested in mechanical engineering, CAD, manufacturing, design,
-              or technical projects? Feel free to connect with me.
-            </p>
 
-            <div class="contact-links">
-              <a href="mailto:sit24me031@sairamtap.edu.in" class="contact-link">
-                ✉ sit24me031@sairamtap.edu.in
-              </a>
+                <h2 class="section-title">
+                    Contact
+                </h2>
 
-              <a
-                href="https://github.com/Harry13181/Portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-              >
-                GitHub
-              </a>
 
-              <a
-                href="https://www.linkedin.com/in/hari-prasath-p-bb4b11404"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-              >
-                LinkedIn
-              </a>
+                <div class="contact-box">
+
+
+                    <h3>
+                        Let's Connect
+                    </h3>
+
+
+                    <p>
+
+                        Interested in mechanical
+                        engineering, CAD, manufacturing,
+                        design, or technical projects?
+                        Feel free to connect with me.
+
+                    </p>
+
+
+                    <div class="contact-links">
+
+
+                        <a
+                            href="mailto:sit24me031@sairamtap.edu.in"
+                            class="contact-link"
+                        >
+
+                            ✉
+                            sit24me031@sairamtap.edu.in
+
+                        </a>
+
+
+                        <a
+                            href="https://github.com/Harry13181/Portfolio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+
+                            GitHub
+
+                        </a>
+
+
+                        <a
+                            href="https://www.linkedin.com/in/hari-prasath-p-bb4b11404"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+
+                            LinkedIn
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </section>
+
+        </section>
+
+
     </main>
+
 
     <!-- =================================================
          FOOTER
          ================================================= -->
 
     <footer>
-      <div>
-        <span class="green"> root@hariprasath:~$ </span>
 
-        exit
-      </div>
+        <div>
 
-      <br />
+            <span class="green">
+                root@hariprasath:~$
+            </span>
 
-      © 2026 HariPrasath P
+            exit
+
+        </div>
+
+
+        <br>
+
+
+        © 2026 HariPrasath P
+
     </footer>
+
 
     <!-- =================================================
          JAVASCRIPT
          ================================================= -->
 
     <script>
-      /* =================================================
+
+
+        /* =================================================
            CINEMATIC PORTAL OPENING
            ================================================= */
 
-      window.addEventListener("load", function () {
-        const boot = document.getElementById("bootScreen");
+        window.addEventListener(
+            "load",
+            function () {
 
-        /*
+                const boot =
+                    document.getElementById(
+                        "bootScreen"
+                    );
+
+
+                /*
                     Portal sequence:
 
                     0.0s  → Portal begins forming
@@ -2266,174 +3426,406 @@
                     3.5s  → Portal disappears
                 */
 
-        setTimeout(function () {
-          boot.classList.add("hide");
-        }, 3500);
-      });
+                setTimeout(
+                    function () {
 
-      /* =================================================
+                        boot.classList.add(
+                            "hide"
+                        );
+
+                    },
+                    3500
+                );
+
+            }
+        );
+
+
+        /* =================================================
            MOBILE MENU
            ================================================= */
 
-      const menuBtn = document.getElementById("menuBtn");
+        const menuBtn =
+            document.getElementById(
+                "menuBtn"
+            );
 
-      const navLinks = document.getElementById("navLinks");
 
-      menuBtn.addEventListener("click", function () {
-        const isOpen = navLinks.classList.toggle("open");
+        const navLinks =
+            document.getElementById(
+                "navLinks"
+            );
 
-        menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
-        menuBtn.textContent = isOpen ? "✕" : "☰";
-      });
+        menuBtn.addEventListener(
+            "click",
+            function () {
 
-      /* =================================================
+                const isOpen =
+                    navLinks.classList.toggle(
+                        "open"
+                    );
+
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                        ? "true"
+                        : "false"
+                );
+
+
+                menuBtn.textContent =
+                    isOpen
+                        ? "✕"
+                        : "☰";
+
+            }
+        );
+
+
+        /* =================================================
            CLOSE MOBILE MENU
            ================================================= */
 
-      document.querySelectorAll(".nav-links a").forEach(function (link) {
-        link.addEventListener("click", function () {
-          navLinks.classList.remove("open");
+        document
+            .querySelectorAll(
+                ".nav-links a"
+            )
+            .forEach(
+                function (link) {
 
-          menuBtn.setAttribute("aria-expanded", "false");
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-          menuBtn.textContent = "☰";
-        });
-      });
+                            navLinks
+                                .classList
+                                .remove(
+                                    "open"
+                                );
 
-      /* =================================================
+
+                            menuBtn.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            menuBtn.textContent =
+                                "☰";
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* =================================================
            TERMINAL TYPING
            ================================================= */
 
-      const terminal = document.getElementById("terminalCommand");
+        const terminal =
+            document.getElementById(
+                "terminalCommand"
+            );
 
-      const terminalText = "root@hariprasath:~$ whoami";
 
-      let character = 0;
+        const terminalText =
+            "root@hariprasath:~$ whoami";
 
-      function typeTerminal() {
-        if (character < terminalText.length) {
-          terminal.textContent += terminalText.charAt(character);
 
-          character++;
+        let character = 0;
 
-          setTimeout(typeTerminal, 45);
+
+        function typeTerminal() {
+
+            if (
+                character <
+                terminalText.length
+            ) {
+
+                terminal.textContent +=
+                    terminalText.charAt(
+                        character
+                    );
+
+
+                character++;
+
+
+                setTimeout(
+                    typeTerminal,
+                    45
+                );
+
+            }
+
         }
-      }
 
-      setTimeout(typeTerminal, 3600);
 
-      /* =================================================
+        setTimeout(
+            typeTerminal,
+            3600
+        );
+
+
+        /* =================================================
            SCROLL REVEAL
            ================================================= */
 
-      const revealElements = document.querySelectorAll(".reveal");
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
 
-      if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("show");
 
-                revealObserver.unobserve(entry.target);
-              }
-            });
-          },
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
-          {
-            threshold: 0.1,
-          },
-        );
+            const revealObserver =
+                new IntersectionObserver(
 
-        revealElements.forEach(function (element) {
-          revealObserver.observe(element);
-        });
-      } else {
-        revealElements.forEach(function (element) {
-          element.classList.add("show");
-        });
-      }
+                    function (entries) {
 
-      /* =================================================
+                        entries.forEach(
+                            function (entry) {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "show"
+                                        );
+
+
+                                    revealObserver
+                                        .unobserve(
+                                            entry.target
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    },
+
+                    {
+                        threshold:
+                            0.1
+                    }
+
+                );
+
+
+            revealElements.forEach(
+                function (element) {
+
+                    revealObserver.observe(
+                        element
+                    );
+
+                }
+            );
+
+        }
+
+        else {
+
+            revealElements.forEach(
+                function (element) {
+
+                    element.classList.add(
+                        "show"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
            ACTIVE NAVIGATION
            ================================================= */
 
-      const sections = document.querySelectorAll("section");
+        const sections =
+            document.querySelectorAll(
+                "section"
+            );
 
-      const navigation = document.querySelectorAll(".nav-links a");
 
-      function updateNavigation() {
-        let currentSection = "home";
+        const navigation =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
 
-        sections.forEach(function (section) {
-          const sectionTop = section.offsetTop - 180;
 
-          if (window.scrollY >= sectionTop) {
-            currentSection = section.id;
-          }
-        });
+        function updateNavigation() {
 
-        navigation.forEach(function (link) {
-          link.classList.remove("active");
+            let currentSection =
+                "home";
 
-          if (link.getAttribute("href") === "#" + currentSection) {
-            link.classList.add("active");
-          }
-        });
-      }
 
-      window.addEventListener("scroll", updateNavigation, {
-        passive: true,
-      });
+            sections.forEach(
+                function (section) {
 
-      /* =================================================
+                    const sectionTop =
+                        section.offsetTop -
+                        180;
+
+
+                    if (
+                        window.scrollY >=
+                        sectionTop
+                    ) {
+
+                        currentSection =
+                            section.id;
+
+                    }
+
+                }
+            );
+
+
+            navigation.forEach(
+                function (link) {
+
+                    link.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        link.getAttribute(
+                            "href"
+                        ) ===
+                        "#" +
+                        currentSection
+                    ) {
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateNavigation,
+            {
+                passive: true
+            }
+        );
+
+
+        /* =================================================
            DESKTOP MOUSE GLOW
            ================================================= */
 
-      const glow = document.getElementById("heroGlow");
+        const glow =
+            document.getElementById(
+                "heroGlow"
+            );
 
-      const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-      if (!hasTouch) {
-        document.addEventListener(
-          "mousemove",
-          function (event) {
-            glow.style.left = event.clientX - 200 + "px";
+        const hasTouch =
+            "ontouchstart"
+            in window ||
+            navigator.maxTouchPoints > 0;
 
-            glow.style.top = event.clientY - 200 + "px";
-          },
-          {
-            passive: true,
-          },
-        );
-      }
 
-      /* =================================================
+        if (!hasTouch) {
+
+            document.addEventListener(
+                "mousemove",
+                function (event) {
+
+                    glow.style.left =
+                        (
+                            event.clientX -
+                            200
+                        ) +
+                        "px";
+
+
+                    glow.style.top =
+                        (
+                            event.clientY -
+                            200
+                        ) +
+                        "px";
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+        }
+
+
+        /* =================================================
            CONSOLE MESSAGE
            ================================================= */
 
-      console.log(
-        "%c HARI PRASATH // PORTFOLIO ",
-        "color:#ff1744;font-size:18px;font-weight:bold;",
-      );
+        console.log(
+            "%c HARI PRASATH // PORTFOLIO ",
+            "color:#ff1744;font-size:18px;font-weight:bold;"
+        );
 
-      console.log("%c SYSTEM ONLINE ", "color:#00ff88;font-size:14px;");
 
-      console.log(
-        "%c Mechanical Engineering × CAD × Manufacturing ",
-        "color:#888;font-size:12px;",
-      );
+        console.log(
+            "%c SYSTEM ONLINE ",
+            "color:#00ff88;font-size:14px;"
+        );
 
-      /* =================================================
+
+        console.log(
+            "%c Mechanical Engineering × CAD × Manufacturing ",
+            "color:#888;font-size:12px;"
+        );
+
+
+        /* =================================================
            KEYBOARD EASTER EGG
            ================================================= */
 
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "~") {
-          console.log("ACCESSING ROOT TERMINAL...");
-        }
-      });
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "~"
+                ) {
+
+                    console.log(
+                        "ACCESSING ROOT TERMINAL..."
+                    );
+
+                }
+
+            }
+        );
+
     </script>
-  </body>
+
+
+</body>
+
 </html>
+```
